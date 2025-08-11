@@ -21,6 +21,10 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(morgan('dev'))
 
+app.get("/", (req,res)=> {
+   res.send({ message : " Hello there"})
+})
+
 app.use("/api/auth", authRoutes);
 app.use("/api/info", infoRoutes);
 app.use("/api/contact", contactRoutes);
