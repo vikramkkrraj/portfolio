@@ -1,21 +1,20 @@
 // src/components/navbar/Navbar.jsx
 import { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 import { FiMenu, FiX } from "react-icons/fi";
+import { Link as ScrollLink } from "react-scroll"; // ✅ react-scroll
 import "../../index.css";
 
 const navLinks = [
-  { label: "Home", to: "/" },
-  { label: "About", to: "/about" },
-  { label: "Projects", to: "/projects" },
-  { label: "Resume", to: "/resume" },
-  { label: "Contact", to: "/contact" },
+  { label: "Home", to: "home" },
+  { label: "About", to: "about" },
+  { label: "Projects", to: "projects" },
+  { label: "Skills", to: "resume" },
+  { label: "Contact", to: "contact" },
 ];
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const location = useLocation();
 
   return (
     <motion.nav
@@ -33,6 +32,7 @@ export const Navbar = () => {
           backgroundSize: "200% 200%",
         }}
       >
+        {/* Logo */}
         <div className="text-2xl font-bold text-white">
           Vikram<span className="text-yellow-300">.dev</span>
         </div>
@@ -40,21 +40,18 @@ export const Navbar = () => {
         {/* Desktop Menu */}
         <div className="hidden md:flex space-x-8 text-white text-lg font-medium">
           {navLinks.map(({ label, to }) => (
-            <Link
+            <ScrollLink
               key={to}
               to={to}
-              className={`cursor-pointer relative transition-all duration-300 hover:text-green-300 ${
-                location.pathname === to ? "text-green-300 font-semibold" : ""
-              }`}
+              smooth={true}
+              duration={500}
+              spy={true}
+              offset={-80} // adjust based on navbar height
+              className="cursor-pointer relative transition-all duration-300 hover:text-green-300"
+              activeClass="text-green-300 font-semibold"
             >
               <span className="hover:scale-105 transition">{label}</span>
-              <motion.span
-                layoutId="underline"
-                className={`absolute -bottom-1 left-0 w-full h-[2px] bg-green-400 scale-x-0 group-hover:scale-x-100 transition-transform origin-left ${
-                  location.pathname === to ? "scale-x-100" : ""
-                }`}
-              />
-            </Link>
+            </ScrollLink>
           ))}
         </div>
 
@@ -72,16 +69,19 @@ export const Navbar = () => {
       {isOpen && (
         <div className="md:hidden mt-2 px-6 bg-black/70 rounded-xl mx-6 py-4 space-y-4">
           {navLinks.map(({ label, to }) => (
-            <Link
+            <ScrollLink
               key={to}
               to={to}
+              smooth={true}
+              duration={500}
+              spy={true}
+              offset={-80}
               onClick={() => setIsOpen(false)}
-              className={`block text-white text-lg font-medium transition ${
-                location.pathname === to ? "text-green-300 font-semibold" : "hover:text-green-300"
-              }`}
+              className="block text-white text-lg font-medium transition hover:text-green-300"
+              activeClass="text-green-300 font-semibold"
             >
               {label}
-            </Link>
+            </ScrollLink>
           ))}
         </div>
       )}

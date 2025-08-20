@@ -9,7 +9,7 @@ import {
   FaGitAlt,
 } from "react-icons/fa";
 import { SiTailwindcss, SiExpress, SiMongodb, SiFramer } from "react-icons/si";
-
+import resume from '../assets/vikramkumarraj-resume.pdf'
 // Skills grouped with corresponding icons
 const frontendSkills = [
   { label: "HTML", icon: <FaHtml5 className="text-orange-500" /> },
@@ -32,7 +32,7 @@ const tools = [
 
 export const Resume = () => {
   return (
-    <section className="min-h-screen px-6 py-20 pt-28 bg-gradient-to-br from-gray-900 via-black to-gray-950 text-white">
+    <section className="min-h-screen px-6 py-20 pt-10 bg-gradient-to-br from-gray-900 via-black to-gray-950 text-white">
       <div className="max-w-5xl mx-auto text-center">
         {/* Page Title */}
         <motion.h1
@@ -41,20 +41,34 @@ export const Resume = () => {
           transition={{ duration: 0.6 }}
           className="text-4xl font-bold mb-6"
         >
-          Resume
+          My Resume
         </motion.h1>
 
-        {/* Download Button */}
-        <motion.a
-          href="https://drive.google.com/file/d/1pZV1bTe1PEjhicD6ZWjyA36nKVREo0r6/view?usp=sharing"
-          target="_blank"
-          rel="noopener noreferrer"
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          className="inline-block bg-yellow-400 hover:bg-yellow-500 text-black font-semibold px-6 py-3 rounded-full transition mb-12"
-        >
-          Download Resume
-        </motion.a>
+        {/* Buttons */}
+        <div className="flex justify-center gap-4 mb-12">
+          {/* View Resume */}
+          <motion.a
+            href="https://drive.google.com/file/d/1pZV1bTe1PEjhicD6ZWjyA36nKVREo0r6/view?usp=sharing"
+            target="_blank"
+            rel="noopener noreferrer"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="inline-block bg-yellow-400 hover:bg-yellow-500 text-black font-semibold px-6 py-3 rounded-full transition"
+          >
+            View Resume
+          </motion.a>
+
+          {/* Download Resume */}
+          <motion.a
+            href={resume}
+            download="Vikram-Resume.pdf"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="inline-block bg-green-400 hover:bg-green-500 text-black font-semibold px-6 py-3 rounded-full transition"
+          >
+            Download Resume
+          </motion.a>
+        </div>
 
         {/* Skills Section */}
         <div className="text-left space-y-12">

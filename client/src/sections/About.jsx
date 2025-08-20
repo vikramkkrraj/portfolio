@@ -1,16 +1,9 @@
 // src/sections/About.jsx
 import { motion } from "framer-motion";
 import Tilt from "react-parallax-tilt";
-import {
-  FaReact,
-  FaNodeJs,
-  FaDatabase,
-} from "react-icons/fa";
-import {
-  SiMongodb,
-  SiJavascript,
-} from "react-icons/si";
-import vikram from '../assets/vikram.jpeg'
+import { FaReact, FaNodeJs, FaDatabase } from "react-icons/fa";
+import { SiMongodb, SiJavascript } from "react-icons/si";
+import vikram from "../assets/vikrampic.png";
 
 // Text animation variants
 const textVariants = {
@@ -42,9 +35,6 @@ const blobAnimation = {
 };
 
 export const About = () => {
-  const imageUrl =
-    "https://drive.google.com/uc?export=view&id=1JeM48y7OEF0_4KeJAGW_C90Dzae_m-Ue";
-
   return (
     <section className="relative min-h-screen px-6 py-16 bg-gradient-to-br from-gray-900 to-black text-white overflow-hidden flex items-center justify-center">
       {/* Animated Blobs */}
@@ -63,7 +53,7 @@ export const About = () => {
         transition={{ ...blobAnimation.transition, delay: 4 }}
       />
 
-      <div className="max-w-xl mx-auto flex flex-col items-center text-center gap-y-8 relative z-10">
+      <div className="max-w-xl mx-auto flex flex-col items-center text-center gap-y-8 relative z-10" >
         {/* Profile Image with Tilt */}
         <motion.div
           initial={{ opacity: 0, y: -30 }}
@@ -82,11 +72,11 @@ export const About = () => {
             tiltMaxAngleY={10}
             className="rounded-full"
           >
-            <div className="relative w-64 h-64 sm:w-72 sm:h-72 rounded-full overflow-hidden border-4 border-yellow-400 shadow-2xl">
+            <div className="relative w-80 h-80 sm:w-96 sm:h-96 rounded-full overflow-hidden border-4 border-yellow-400 shadow-2xl bg-white">
               <img
                 src={vikram}
                 alt="Vikram"
-                className="w-full h-full object-cover rounded-full"
+                className="w-full h-full object-contain object-top rounded-full"
               />
               <div className="absolute inset-0 bg-gradient-to-tr from-white/10 to-white/0 hover:opacity-20 transition-opacity duration-700 pointer-events-none" />
             </div>
@@ -134,11 +124,31 @@ export const About = () => {
             variants={textVariants}
             custom={3}
           >
-            <FaReact size={40} className="text-cyan-400 hover:scale-110 transition-transform" title="React" />
-            <FaNodeJs size={40} className="text-green-500 hover:scale-110 transition-transform" title="Node.js" />
-            <SiMongodb size={40} className="text-green-700 hover:scale-110 transition-transform" title="MongoDB" />
-            <FaDatabase size={40} className="text-blue-300 hover:scale-110 transition-transform" title="Database" />
-            <SiJavascript size={40} className="text-yellow-400 hover:scale-110 transition-transform" title="JavaScript" />
+            <FaReact
+              size={40}
+              className="text-cyan-400 hover:scale-110 transition-transform"
+              title="React"
+            />
+            <FaNodeJs
+              size={40}
+              className="text-green-500 hover:scale-110 transition-transform"
+              title="Node.js"
+            />
+            <SiMongodb
+              size={40}
+              className="text-green-700 hover:scale-110 transition-transform"
+              title="MongoDB"
+            />
+            <FaDatabase
+              size={40}
+              className="text-blue-300 hover:scale-110 transition-transform"
+              title="Database"
+            />
+            <SiJavascript
+              size={40}
+              className="text-yellow-400 hover:scale-110 transition-transform"
+              title="JavaScript"
+            />
           </motion.div>
         </motion.div>
       </div>

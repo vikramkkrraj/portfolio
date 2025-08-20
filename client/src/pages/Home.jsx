@@ -1,10 +1,10 @@
-// src/pages/Home.jsx
 import { useEffect, useState } from "react";
 import api from "../services/api";
 import { Hero } from "../sections/Hero";
 import { About } from "../sections/About";
 import { Projects } from "../sections/Projects";
 import { ContactSection } from "../sections/ContactSection";
+import { Resume } from "./Resume";
 
 export const Home = () => {
   const [projects, setProjects] = useState([]);
@@ -24,10 +24,28 @@ export const Home = () => {
 
   return (
     <main>
-      <Hero />
-      <About />
-      <Projects projects={projects} />
-      <ContactSection />
+      <section id="home">
+        <Hero />
+      </section>
+
+      <section id="about">
+        <About />
+      </section>
+
+      <section id="projects">
+        <Projects projects={projects} />
+      </section>
+
+      <section id="resume">
+        {/* If you want a Resume section, add it here */}
+        {/* <h2 className="text-center text-2xl font-bold">My Resume</h2> */}
+        {/* Resume component can go here */}
+        <Resume />
+      </section>
+
+      <section id="contact">
+        <ContactSection />
+      </section>
     </main>
   );
 };
