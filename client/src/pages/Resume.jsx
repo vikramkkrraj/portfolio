@@ -34,9 +34,9 @@ const tools = [
 
 export const Resume = () => {
   const gDriveView =
-    "https://drive.google.com/file/d/1pZV1bTe1PEjhicD6ZWjyA36nKVREo0r6/view";
+    "https://drive.google.com/file/d/1uV9QvOg2TiMtfxirGLjwWIjjnlRXkdJy/view";
   const gDriveDownload =
-    "https://drive.google.com/uc?export=download&id=1pZV1bTe1PEjhicD6ZWjyA36nKVREo0r6";
+    "https://drive.google.com/uc?export=download&id=1uV9QvOg2TiMtfxirGLjwWIjjnlRXkdJy";
 
   const handleViewAndDownload = () => {
     // Open resume in new tab (view)
