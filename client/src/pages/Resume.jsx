@@ -10,7 +10,6 @@ import {
 } from "react-icons/fa";
 import { SiTailwindcss, SiExpress, SiMongodb, SiFramer } from "react-icons/si";
 import { Button } from "../components/common/Button";
-import resume from "../assets/vikramkumarraj-resume.pdf";
 
 // Skills grouped with corresponding icons
 const frontendSkills = [
