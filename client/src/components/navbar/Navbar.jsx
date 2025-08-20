@@ -2,7 +2,8 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { FiMenu, FiX } from "react-icons/fi";
-import { Link as ScrollLink } from "react-scroll"; // ✅ react-scroll
+import { Link as ScrollLink } from "react-scroll"; //react-scroll
+import { Button } from "../common/Button"; //Import your custom Button
 import "../../index.css";
 
 const navLinks = [
@@ -15,6 +16,21 @@ const navLinks = [
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+
+  const resumeViewAndDownload = () => {
+    // Open resume in a new tab
+    window.open(
+      "https://drive.google.com/file/d/1pZV1bTe1PEjhicD6ZWjyA36nKVREo0r6/view",
+      "_blank"
+    );
+
+    // Trigger download
+    const link = document.createElement("a");
+    link.href =
+      "https://drive.google.com/uc?export=download&id=1pZV1bTe1PEjhicD6ZWjyA36nKVREo0r6";
+    link.download = "Vikram_Kumar_Raj_Resume.pdf";
+    link.click();
+  };
 
   return (
     <motion.nav
@@ -38,7 +54,7 @@ export const Navbar = () => {
         </div>
 
         {/* Desktop Menu */}
-        <div className="hidden md:flex space-x-8 text-white text-lg font-medium">
+        <div className="hidden md:flex space-x-8 text-white text-lg font-medium items-center">
           {navLinks.map(({ label, to }) => (
             <ScrollLink
               key={to}
@@ -46,13 +62,18 @@ export const Navbar = () => {
               smooth={true}
               duration={500}
               spy={true}
-              offset={-80} // adjust based on navbar height
+              offset={-80}
               className="cursor-pointer relative transition-all duration-300 hover:text-green-300"
               activeClass="text-green-300 font-semibold"
             >
               <span className="hover:scale-105 transition">{label}</span>
             </ScrollLink>
           ))}
+
+          {/* Resume Button */}
+          <Button onClick={resumeViewAndDownload} className="ml-4">
+            Resume
+          </Button>
         </div>
 
         {/* Mobile Toggle */}
@@ -83,6 +104,17 @@ export const Navbar = () => {
               {label}
             </ScrollLink>
           ))}
+
+          {/* Resume Button for Mobile */}
+          <Button
+            onClick={() => {
+              resumeViewAndDownload();
+              setIsOpen(false);
+            }}
+            className="w-full text-center"
+          >
+            Resume
+          </Button>
         </div>
       )}
     </motion.nav>

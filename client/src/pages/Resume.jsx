@@ -9,7 +9,9 @@ import {
   FaGitAlt,
 } from "react-icons/fa";
 import { SiTailwindcss, SiExpress, SiMongodb, SiFramer } from "react-icons/si";
-import resume from '../assets/vikramkumarraj-resume.pdf'
+import { Button } from "../components/common/Button";
+import resume from "../assets/vikramkumarraj-resume.pdf";
+
 // Skills grouped with corresponding icons
 const frontendSkills = [
   { label: "HTML", icon: <FaHtml5 className="text-orange-500" /> },
@@ -31,6 +33,22 @@ const tools = [
 ];
 
 export const Resume = () => {
+  const gDriveView =
+    "https://drive.google.com/file/d/1pZV1bTe1PEjhicD6ZWjyA36nKVREo0r6/view";
+  const gDriveDownload =
+    "https://drive.google.com/uc?export=download&id=1pZV1bTe1PEjhicD6ZWjyA36nKVREo0r6";
+
+  const handleViewAndDownload = () => {
+    // Open resume in new tab (view)
+    window.open(gDriveView, "_blank");
+
+    // Trigger download
+    const link = document.createElement("a");
+    link.href = gDriveDownload;
+    link.download = "Vikram_Kumar_Raj_Resume.pdf";
+    link.click();
+  };
+
   return (
     <section className="min-h-screen px-6 py-20 pt-10 bg-gradient-to-br from-gray-900 via-black to-gray-950 text-white">
       <div className="max-w-5xl mx-auto text-center">
@@ -46,28 +64,13 @@ export const Resume = () => {
 
         {/* Buttons */}
         <div className="flex justify-center gap-4 mb-12">
-          {/* View Resume */}
-          <motion.a
-            href="https://drive.google.com/file/d/1pZV1bTe1PEjhicD6ZWjyA36nKVREo0r6/view?usp=sharing"
-            target="_blank"
-            rel="noopener noreferrer"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="inline-block bg-yellow-400 hover:bg-yellow-500 text-black font-semibold px-6 py-3 rounded-full transition"
+          {/* Combined View & Download */}
+          <Button
+            onClick={handleViewAndDownload}
+            className="from-blue-500 via-purple-500 to-pink-500"
           >
-            View Resume
-          </motion.a>
-
-          {/* Download Resume */}
-          <motion.a
-            href={resume}
-            download="Vikram-Resume.pdf"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="inline-block bg-green-400 hover:bg-green-500 text-black font-semibold px-6 py-3 rounded-full transition"
-          >
-            Download Resume
-          </motion.a>
+            View & Download
+          </Button>
         </div>
 
         {/* Skills Section */}
@@ -87,15 +90,13 @@ export const Resume = () => {
                 <motion.div
                   key={idx}
                   className="flex flex-col items-center bg-gray-800 py-5 px-4 rounded-lg text-white font-medium text-lg shadow-md transition duration-300 hover:text-black"
-                  style={{
-                    transition: "all 0.3s ease-in-out",
-                  }}
+                  style={{ transition: "all 0.3s ease-in-out" }}
                   onMouseEnter={(e) => {
                     e.currentTarget.style.background =
                       "linear-gradient(90deg, #00C9FF 0%, #92FE9D 100%)";
                   }}
                   onMouseLeave={(e) => {
-                    e.currentTarget.style.background = "#1f2937"; // Tailwind's bg-gray-800
+                    e.currentTarget.style.background = "#1f2937";
                   }}
                 >
                   <div className="text-3xl mb-2">{skill.icon}</div>
@@ -128,7 +129,7 @@ export const Resume = () => {
                       "linear-gradient(90deg, #FC466B 0%, #3F5EFB 100%)";
                   }}
                   onMouseLeave={(e) => {
-                    e.currentTarget.style.background = "#1f2937"; // Tailwind's bg-gray-800
+                    e.currentTarget.style.background = "#1f2937";
                   }}
                 >
                   <div className="text-3xl mb-2">{skill.icon}</div>
@@ -161,7 +162,7 @@ export const Resume = () => {
                       "linear-gradient(90deg, #0700b8 0%, #00ff88 100%)";
                   }}
                   onMouseLeave={(e) => {
-                    e.currentTarget.style.background = "#1f2937"; // Tailwind's bg-gray-800
+                    e.currentTarget.style.background = "#1f2937";
                   }}
                 >
                   <div className="text-3xl mb-2">{tool.icon}</div>
