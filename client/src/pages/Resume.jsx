@@ -46,7 +46,7 @@ export const Resume = () => {
 
         {/* Download Button */}
         <motion.a
-          href="https://drive.google.com/file/d/1kqBsJOHa8h52Aayqs2GoVRSREnpJLX4h/view?usp=sharing"
+          href="https://drive.google.com/file/d/1pZV1bTe1PEjhicD6ZWjyA36nKVREo0r6/view?usp=sharing"
           target="_blank"
           rel="noopener noreferrer"
           whileHover={{ scale: 1.05 }}
