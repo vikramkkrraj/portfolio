@@ -10,6 +10,7 @@ import {
   SiMongodb,
   SiJavascript,
 } from "react-icons/si";
+import vikram from '../assets/vikram.jpeg'
 
 // Text animation variants
 const textVariants = {
@@ -83,7 +84,7 @@ export const About = () => {
           >
             <div className="relative w-64 h-64 sm:w-72 sm:h-72 rounded-full overflow-hidden border-4 border-yellow-400 shadow-2xl">
               <img
-                src={imageUrl}
+                src={vikram}
                 alt="Vikram"
                 className="w-full h-full object-cover rounded-full"
               />
