@@ -20,14 +20,14 @@ export const Navbar = () => {
   const resumeViewAndDownload = () => {
     // Open resume in a new tab
     window.open(
-      "https://drive.google.com/file/d/1pZV1bTe1PEjhicD6ZWjyA36nKVREo0r6/view",
+      "https://drive.google.com/file/d/1uV9QvOg2TiMtfxirGLjwWIjjnlRXkdJy/view",
       "_blank"
     );
 
     // Trigger download
     const link = document.createElement("a");
     link.href =
-      "https://drive.google.com/uc?export=download&id=1pZV1bTe1PEjhicD6ZWjyA36nKVREo0r6";
+      "https://drive.google.com/uc?export=download&id=1uV9QvOg2TiMtfxirGLjwWIjjnlRXkdJy";
     link.download = "Vikram_Kumar_Raj_Resume.pdf";
     link.click();
   };
