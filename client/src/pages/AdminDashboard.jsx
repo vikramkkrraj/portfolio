@@ -12,7 +12,6 @@ export const AdminDashboard = () => {
   const fetchProjects = async () => {
     try {
       const data = await getAllProjects();
-      console.log("Fetched projects:", data);
       setProjects(Array.isArray(data) ? data : []);
     } catch (err) {
       console.error("Failed to fetch projects", err);
